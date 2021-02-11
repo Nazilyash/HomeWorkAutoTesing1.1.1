@@ -30,4 +30,29 @@ public class CashbackHackServiceTest {
         assertEquals(expected,actual);
     }
 
+    @org.junit.jupiter.api.Test
+    public void shouldTestRemainIfAmountUnder1000Api() {
+        CashbackHackService service = new CashbackHackService();
+        int amount=1;
+        int actual = service.remain(amount);
+        int expected=999;
+        org.junit.jupiter.api.Assertions.assertEquals(expected,actual);
+    }
+    @org.junit.jupiter.api.Test
+    public void shouldTestRemainIfAmountOver1000Api() {
+        CashbackHackService service = new CashbackHackService();
+        int amount=1001;
+        int actual = service.remain(amount);
+        int expected=999;
+        org.junit.jupiter.api.Assertions.assertEquals(expected,actual);
+    }
+    @org.junit.jupiter.api.Test
+    public void shouldTestRemainIfAmountEqual1000Api() {
+        CashbackHackService service = new CashbackHackService();
+        int amount=1000;
+        int actual = service.remain(amount);
+        int expected=0;
+        org.junit.jupiter.api.Assertions.assertEquals(expected,actual);
+    }
+
 }
